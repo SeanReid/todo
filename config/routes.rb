@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'task/index'
+  resources :task
 
   root 'task#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -32,3 +32,5 @@ group :test do
   gem 'capybara'
   gem 'launchy'
 end
+
+gem 'simple_form', '3.1.0.rc2'
