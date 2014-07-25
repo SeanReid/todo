@@ -14,11 +14,11 @@ class UserCanAddTaskTest < ActionDispatch::IntegrationTest
   	assert page.has_content?("New Task")
 	end
 
-  def test_user_can_edit_task
+  def test_user_can_delete_task
+    Task.create(title: 'hello')
     visit root_path
-    second(:link, link).click("Edit")
-    visit edit_task_path
-    assert page.has_content?("Edit Task")
+    click_button "Destroy"
+    assert page.has_no_content?('hello'), "hello should not have shown"
   end
 
 

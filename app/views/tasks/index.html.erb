@@ -1,0 +1,22 @@
+<h1>Todo App</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr data-id="<%= task.id %>">
+        <td><%= task.title %></td>
+        <td><button><%= link_to "Destroy", task, method: :delete, remote: true, class:"btn btn-danger"%>
+        </button></td>
+      </tr>>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<button>
+<%= link_to "Add Task", new_task_path, class:"btn btn-success btn-lg btn-block" %>
+</button>
