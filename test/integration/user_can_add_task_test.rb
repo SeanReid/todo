@@ -16,7 +16,7 @@ class UserCanAddTaskTest < ActionDispatch::IntegrationTest
 
   def test_user_can_edit_task
     visit root_path
-    click_button "Edit"
+    second(:link, link).click("Edit")
     visit edit_task_path
     assert page.has_content?("Edit Task")
   end

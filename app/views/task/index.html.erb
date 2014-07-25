@@ -1,6 +1,17 @@
 <h1>Todo App</h1>
-<p>Find me in app/views/task/index.html.erb</p>
+<% @tasks.each do |task| %>
 
 <br>
-<button><%= link_to 'Add Task', new_task_path, class:"btn btn-success btn-lg btn-block" %>
+<button>
+<%= link_to 'Add Task', new_task_path, class:"btn btn-success btn-lg btn-block" %></button>
+
+<br>
+
+<button>
+<%= link_to 'Edit', edit_task_path, class:"btn btn-success btn-lg btn-block" %>
 </button>
+
+<% end %>
+
+
+
