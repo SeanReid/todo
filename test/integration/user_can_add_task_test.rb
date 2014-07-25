@@ -7,4 +7,11 @@ class UserCanAddTaskTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Todo App")
   end
 
+  def user_can_add_task
+  	visit root_path
+  	click_button "Add Task"
+  	assert page.has_content?("Add Task")
+	end
+
+
 end
