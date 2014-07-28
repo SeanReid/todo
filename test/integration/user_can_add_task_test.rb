@@ -26,6 +26,8 @@ class UserCanAddTaskTest < ActionDispatch::IntegrationTest
     visit new_task_path
     fill_in :Title, :with => "Sample Task"
     click_button 'Create Task'
+    visit root_path
+    assert page.has_content?('Sample Task')
   end
 
 end
