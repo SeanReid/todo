@@ -24,7 +24,7 @@ class UserCanAddTaskTest < ActionDispatch::IntegrationTest
     visit root_path
     click_button "Add Task"
     visit new_task_path
-    assert page.has_content?("Submit")
+    assert page.has_content?("Create Task")
   end
 
 end

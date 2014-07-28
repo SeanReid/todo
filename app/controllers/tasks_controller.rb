@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  before_action :set_task, only: [:destroy]
+  before_action :set_task, only: [:show, :destroy]
 
   def index
   	@tasks = Task.all
@@ -12,11 +12,15 @@ class TasksController < ApplicationController
 
 def create
     @task = Task.new(task_params)
-    if @task.save
-      redirect_to :action => :index
-    else
-  
-    render 'index'
+
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        
+      else
+        format.html { render :new }
+        
+      end
     end
   end
   
