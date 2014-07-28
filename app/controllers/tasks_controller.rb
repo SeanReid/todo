@@ -7,7 +7,20 @@ class TasksController < ApplicationController
   end
 
   def new
+    @task = Task.new
   end
+
+def create
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to :action => :index
+    else
+  
+    render 'index'
+    end
+  end
+  
+
 
   def show
   end
@@ -24,5 +37,9 @@ class TasksController < ApplicationController
   def set_task
     @task = Task.find(params[:id])
   end
+
+  def task_params
+      params.require(:task).permit(:title)
+    end
 
 end
