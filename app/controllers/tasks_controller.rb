@@ -16,14 +16,14 @@ def create
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        
+
       else
         format.html { render :new }
-        
+
       end
     end
   end
-  
+
 
 
   def show
@@ -31,9 +31,9 @@ def create
 
   def destroy
     @task.destroy
-    respond_to do |format|
-      format.js   {  }
-    end
+    # respond_to do |format|
+    #   format.js   {  }
+    # end
   end
 
   private
